@@ -1,0 +1,24 @@
+﻿<Window x:Class="Bio3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bio3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="510.577" Width="900.385">
+    <Grid>
+        <Menu DockPanel.Dock="Top" Margin="0,0,9.6,451.8">
+            <MenuItem Header="Plik">
+                <MenuItem x:Name="Otwórz" Header="Otwórz" Click="Open_Click"/>
+                <MenuItem x:Name="Zapisz" Header="Zapisz" Click="Safe_Click"/>
+            </MenuItem>
+
+        </Menu>
+        <Image Name ="ImagePhoto" RenderTransformOrigin="0.632,0.827" Margin="167,34,298.6,224.8"/>
+        <Button Content="Zmiana przestrzeni barw na monochromatyczną" Margin="26,326,610.6,0" VerticalAlignment="Top" Click="Monochrome_Click" Height="40">
+
+        </Button>
+        <Button Content="Rozmycie obrazu" HorizontalAlignment="Left" Margin="26,371,0,0" VerticalAlignment="Top" Width="257" Height="35" Click="Blur_Click" />
+        <Button Content="Odjęcie obrazu rozmytego od obrazu oryginalnego w odcieniach szarości(" HorizontalAlignment="Left" Margin="26,411,0,0" VerticalAlignment="Top" Width="257" Height="39" Click="Button_Click"/>
+    </Grid>
+</Window>

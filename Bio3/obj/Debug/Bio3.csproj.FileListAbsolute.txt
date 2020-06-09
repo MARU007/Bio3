@@ -1,0 +1,15 @@
+C:\Users\lenovo\source\repos\Bio3\Bio3\obj\Debug\Bio3.csprojAssemblyReference.cache
+C:\Users\lenovo\source\repos\Bio3\Bio3\obj\Debug\MainWindow.g.cs
+C:\Users\lenovo\source\repos\Bio3\Bio3\obj\Debug\App.g.cs
+C:\Users\lenovo\source\repos\Bio3\Bio3\obj\Debug\Bio3_MarkupCompile.cache
+C:\Users\lenovo\source\repos\Bio3\Bio3\obj\Debug\Bio3_MarkupCompile.lref
+C:\Users\lenovo\source\repos\Bio3\Bio3\bin\Debug\Bio3.exe.config
+C:\Users\lenovo\source\repos\Bio3\Bio3\bin\Debug\Bio3.exe
+C:\Users\lenovo\source\repos\Bio3\Bio3\bin\Debug\Bio3.pdb
+C:\Users\lenovo\source\repos\Bio3\Bio3\obj\Debug\MainWindow.baml
+C:\Users\lenovo\source\repos\Bio3\Bio3\obj\Debug\Bio3.g.resources
+C:\Users\lenovo\source\repos\Bio3\Bio3\obj\Debug\Bio3.Properties.Resources.resources
+C:\Users\lenovo\source\repos\Bio3\Bio3\obj\Debug\Bio3.csproj.GenerateResource.cache
+C:\Users\lenovo\source\repos\Bio3\Bio3\obj\Debug\Bio3.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\source\repos\Bio3\Bio3\obj\Debug\Bio3.exe
+C:\Users\lenovo\source\repos\Bio3\Bio3\obj\Debug\Bio3.pdb
