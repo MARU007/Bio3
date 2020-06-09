@@ -9,7 +9,7 @@ namespace Bio3
 {
     class Deduction
     {
-        public Bitmap DeductionImage(Bitmap blur, Bitmap monochrome)
+        public Bitmap DeductionImage(Bitmap monochrome, Bitmap  blur)
         {
             Bitmap bitmap = new Bitmap(blur);
             Color newPixel;
