@@ -29,7 +29,7 @@ namespace Bio3
             InitializeComponent();
         }
 
-        Bitmap image, imageMonochrome, imageBlurimageDeduction, imageOtsuBinarization, imageFilter;
+        Bitmap image, imageMonochrome, imageBlurimageDeduction, imageOtsuBinarization, imageFilter, imageBlur, imageDeduction;
 
         private void Open_Click(object sender, RoutedEventArgs e)
         {
@@ -50,11 +50,11 @@ namespace Bio3
             }
             ImagePhoto.Source = myBitmapImage;
             image = new Bitmap(image, image.Width/6, image.Height/6);
-            imageMonochrome = image;
-            imageBlur = image;
-            imageDeduction = image;
-            imageOtsuBinarization = image;
-            imageFilter = image;
+            imageMonochrome = new Bitmap(image);
+            imageBlur = new Bitmap(image);
+            imageDeduction = new Bitmap(image);
+            imageOtsuBinarization = new Bitmap(image);
+            imageFilter = new Bitmap(image);
         }
 
         private void Monochrome_Click(object sender, RoutedEventArgs e)
@@ -62,6 +62,7 @@ namespace Bio3
             Monochrome monochrome = new Monochrome();
             imageMonochrome = monochrome.ReplacementForGray(imageMonochrome);
             setImage(imageMonochrome);
+            image=imageMonochrome;
         }
 
         private void Blur_Click(object sender, RoutedEventArgs e)
@@ -69,25 +70,29 @@ namespace Bio3
             Blur blur = new Blur();
             imageBlur=blur.BlurImage(imageBlur);
             setImage(imageBlur);
+            image=imageBlur;
         }
 
         private void Deduction_Click(object sender, RoutedEventArgs e)
         {
             Deduction deduction = new Deduction();
-            imageDeduction = deduction.DeductionImage(imageBlur, imageMonochrome);
+            imageDeduction = deduction.DeductionImage(imageBlur ,imageMonochrome);
             setImage(imageDeduction);
+            image=imageDeduction;
         }
         private void Otsu_Click(object sender, RoutedEventArgs e)
         {
             OtsuBinarization otsuBinarization = new OtsuBinarization();
             imageOtsuBinarization = otsuBinarization.Binarization(imageDeduction);
             setImage(imageOtsuBinarization);
+            image=imageBlurimageDeduction;
         }
         private void Filter_Click(object sender, RoutedEventArgs e)
         {
             Filter filter = new Filter();
             imageFilter = filter.FilterM(3,imageOtsuBinarization); //masak 3x3
             setImage(imageFilter);
+            image=imageFilter;
         }
 
         private void setImage(Bitmap bmp)

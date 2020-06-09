@@ -14,7 +14,7 @@
             </MenuItem>
 
         </Menu>
-        <Image Name ="ImagePhoto" RenderTransformOrigin="0.632,0.827" Margin="167,34,298.6,224.8"/>
+        <Image Name ="ImagePhoto" RenderTransformOrigin="0.632,0.827" Margin="88,34,84.6,185.8"/>
         <Button Content="Zmiana przestrzeni barw na monochromatyczną" Margin="26,326,610.6,0" VerticalAlignment="Top" Click="Monochrome_Click" Height="40">
 
         </Button>
