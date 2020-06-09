@@ -19,6 +19,8 @@
 
         </Button>
         <Button Content="Rozmycie obrazu" HorizontalAlignment="Left" Margin="26,371,0,0" VerticalAlignment="Top" Width="257" Height="35" Click="Blur_Click" />
-        <Button Content="Odjęcie obrazu rozmytego od obrazu oryginalnego w odcieniach szarości(" HorizontalAlignment="Left" Margin="26,411,0,0" VerticalAlignment="Top" Width="257" Height="39" Click="Button_Click"/>
+        <Button Content="Odjęcie obrazu rozmytego od obrazu oryginalnego w odcieniach szarości(" HorizontalAlignment="Left" Margin="26,411,0,0" VerticalAlignment="Top" Width="257" Height="39" Click="Deduction_Click"/>
+        <Button Content="Binaryzacja Otsu" HorizontalAlignment="Left" Margin="326,326,0,0" VerticalAlignment="Top" Width="257" Height="39" Click="Otsu_Click"/>
+        <Button Content="Zastosowanie filtru medianowego" HorizontalAlignment="Left" Margin="326,371,0,0" VerticalAlignment="Top" Width="257" Height="39" Click="Filter_Click"/>
     </Grid>
 </Window>
