@@ -29,7 +29,7 @@ namespace Bio3
             InitializeComponent();
         }
 
-        Bitmap image, imageMonochrome, imageBlur;
+        Bitmap image, imageMonochrome, imageBlurimageDeduction, imageOtsuBinarization, imageFilter;
 
         private void Open_Click(object sender, RoutedEventArgs e)
         {
@@ -52,6 +52,9 @@ namespace Bio3
             image = new Bitmap(image, image.Width/6, image.Height/6);
             imageMonochrome = image;
             imageBlur = image;
+            imageDeduction = image;
+            imageOtsuBinarization = image;
+            imageFilter = image;
         }
 
         private void Monochrome_Click(object sender, RoutedEventArgs e)
@@ -68,9 +71,23 @@ namespace Bio3
             setImage(imageBlur);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Deduction_Click(object sender, RoutedEventArgs e)
         {
-
+            Deduction deduction = new Deduction();
+            imageDeduction = deduction.DeductionImage(imageBlur, imageMonochrome);
+            setImage(imageDeduction);
+        }
+        private void Otsu_Click(object sender, RoutedEventArgs e)
+        {
+            OtsuBinarization otsuBinarization = new OtsuBinarization();
+            imageOtsuBinarization = otsuBinarization.Binarization(imageDeduction);
+            setImage(imageOtsuBinarization);
+        }
+        private void Filter_Click(object sender, RoutedEventArgs e)
+        {
+            Filter filter = new Filter();
+            imageFilter = filter.FilterM(3,imageOtsuBinarization); //masak 3x3
+            setImage(imageFilter);
         }
 
         private void setImage(Bitmap bmp)
