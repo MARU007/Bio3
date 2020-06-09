@@ -9,6 +9,66 @@ namespace Bio3
 {
     class Blur
     {
+        public Bitmap Smudge(Bitmap tmp)
+        {
+            double width = tmp.Width;
+            double height = (double)tmp.Height;
+            int size = 3;
+            Bitmap pom = new Bitmap(tmp);
+            for (int w = 0; (double)w < width; ++w)
+            {
+                for (int h = 0; (double)h < height; ++h)
+                {
+                    int iloscPixeli = 0;
+                    int sumaR = 0;
+                    int sumaG = 0;
+                    int sumaB = 0;
+
+                    for (int i = -size; i <= size; ++i)
+                    {
+                        for (int j = -size; j <= size; ++j)
+                        {
+                            if (w + i >= 0 && (double)(w + i) < width && h + j >= 0 && (double)(h + j) < height)
+                            {
+                                System.Drawing.Color pixel = tmp.GetPixel(w + i, h + j);
+                                sumaR += pixel.R;
+                                sumaG += pixel.G;
+                                sumaB += pixel.B;
+                                ++iloscPixeli;
+                            }
+                        }
+                    }
+
+                    sumaR /= iloscPixeli;
+                    sumaG /= iloscPixeli;
+                    sumaB /= iloscPixeli;
+                    sumaR = checkerRange(sumaR);
+                    sumaG = checkerRange(sumaG);
+                    sumaR = checkerRange(sumaR);
+
+                    System.Drawing.Color newPixel = System.Drawing.Color.FromArgb(sumaR, sumaG, sumaB);
+
+                    pom.SetPixel(w, h, newPixel);
+                }
+            }
+            tmp = pom;
+
+            return tmp;
+        }
+        private int checkerRange(int pixel)
+        {
+            if (pixel > 255)
+            {
+                pixel = 255;
+            }
+            else if (pixel < 0)
+            {
+                pixel = 0;
+            }
+            return pixel;
+        }
+
+
         public Bitmap BlurImage(Bitmap bmp) // rzomycie 
         {
             Bitmap imgPom = new Bitmap(bmp);
@@ -77,9 +137,9 @@ namespace Bio3
             {
                 for (int j = y - 3; j <= y + 3; j++)
                 {
-                    if (color == 1) tab[i-(x-3), j-(y-3)] = bmp.GetPixel(i, j).R;
-                    else if (color == 2) tab[i-(x-3), j-(y-3)] = bmp.GetPixel(i, j).G;
-                    else tab[i-(x-3), j-(y-3)] = bmp.GetPixel(i, j).B;
+                    if (color == 1) tab[i - (x - 3), j - (y - 3)] = bmp.GetPixel(i, j).R;
+                    else if (color == 2) tab[i - (x - 3), j - (y - 3)] = bmp.GetPixel(i, j).G;
+                    else tab[i - (x - 3), j - (y - 3)] = bmp.GetPixel(i, j).B;
                 }
             }
             return tab;

@@ -69,7 +69,7 @@ namespace Bio3
         {
             Blur blur = new Blur();
             Monochrome monochrome = new Monochrome();
-            imageBlur = blur.BlurImage(imageBlur);
+            imageBlur = blur.Smudge(imageBlur);
             imageBlur = monochrome.ReplacementForGray(imageBlur);
             setImage(imageBlur);
             image = imageBlur;
