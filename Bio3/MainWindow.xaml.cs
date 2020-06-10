@@ -29,7 +29,7 @@ namespace Bio3
             InitializeComponent();
         }
 
-        Bitmap image, imageMonochrome, imageBlurimageDeduction, imageOtsuBinarization, imageFilter, imageBlur, imageDeduction;
+        Bitmap image, imageMonochrome, imageBlurimageDeduction, imageOtsuBinarization, imageFilter, imageBlur, imageDeduction, imageK3M;
 
         private void Open_Click(object sender, RoutedEventArgs e)
         {
@@ -55,6 +55,7 @@ namespace Bio3
             imageDeduction = new Bitmap(image);
             imageOtsuBinarization = new Bitmap(image);
             imageFilter = new Bitmap(image);
+            imageK3M = new Bitmap(image);
         }
 
         private void Monochrome_Click(object sender, RoutedEventArgs e)
@@ -102,6 +103,7 @@ namespace Bio3
             image = findMinutiae.SearchMinutiae(image);
             setImage(image);
 
+<<<<<<< HEAD
         }
           private void FilterMinutia_Click(object sender, RoutedEventArgs e)
         {
@@ -110,6 +112,16 @@ namespace Bio3
             setImage(image);
 
         }
+=======
+        private void K3M_Click(object sender, RoutedEventArgs e)
+        {
+            K3M k3M = new K3M();
+            imageK3M = k3M.K3MSkeletonization(image);//trzeba zmienić na morfologiczne, jeśli nie są
+            setImage(imageFilter);
+            image = imageFilter;
+        }
+
+>>>>>>> master
         private void setImage(Bitmap bmp)
         {
             using (var memory = new MemoryStream())
