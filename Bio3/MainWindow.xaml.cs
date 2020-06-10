@@ -29,7 +29,7 @@ namespace Bio3
             InitializeComponent();
         }
 
-        Bitmap image, imageMonochrome, imageBlurimageDeduction, imageOtsuBinarization, imageFilter, imageBlur, imageDeduction;
+        Bitmap image, imageMonochrome, imageBlurimageDeduction, imageOtsuBinarization, imageFilter, imageBlur, imageDeduction, imageK3M;
 
         private void Open_Click(object sender, RoutedEventArgs e)
         {
@@ -55,6 +55,7 @@ namespace Bio3
             imageDeduction = new Bitmap(image);
             imageOtsuBinarization = new Bitmap(image);
             imageFilter = new Bitmap(image);
+            imageK3M = new Bitmap(image);
         }
 
         private void Monochrome_Click(object sender, RoutedEventArgs e)
@@ -93,6 +94,14 @@ namespace Bio3
         {
             Filter filter = new Filter();
             imageFilter = filter.FilterM(3, imageOtsuBinarization); //masak 3x3
+            setImage(imageFilter);
+            image = imageFilter;
+        }
+
+        private void K3M_Click(object sender, RoutedEventArgs e)
+        {
+            K3M k3M = new K3M();
+            imageK3M = k3M.K3MSkeletonization(image);//trzeba zmienić na morfologiczne, jeśli nie są
             setImage(imageFilter);
             image = imageFilter;
         }
