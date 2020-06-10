@@ -69,7 +69,7 @@ namespace Bio3
         {
             Blur blur = new Blur();
             Monochrome monochrome = new Monochrome();
-            imageBlur = blur.Smudge(imageBlur);
+            imageBlur = blur.BlurImage(imageBlur);
             imageBlur = monochrome.ReplacementForGray(imageBlur);
             setImage(imageBlur);
             image = imageBlur;
@@ -96,7 +96,20 @@ namespace Bio3
             setImage(imageFilter);
             image = imageFilter;
         }
+        private void SearchMinutia_Click(object sender, RoutedEventArgs e)
+        {
+            FindMinutiae findMinutiae = new FindMinutiae();
+            image = findMinutiae.SearchMinutiae(image);
+            setImage(image);
 
+        }
+          private void FilterMinutia_Click(object sender, RoutedEventArgs e)
+        {
+            FilterMinution filter = new FilterMinution();
+            image = filter.Filtering(image);
+            setImage(image);
+
+        }
         private void setImage(Bitmap bmp)
         {
             using (var memory = new MemoryStream())

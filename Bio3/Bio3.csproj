@@ -67,6 +67,8 @@
     <Compile Include="Blur .cs" />
     <Compile Include="Deduction.cs" />
     <Compile Include="Filter.cs" />
+    <Compile Include="FilterMinution.cs" />
+    <Compile Include="FindMinutiae.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
