@@ -5,22 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bio3"
         mc:Ignorable="d"
-        Title="MainWindow" Height="510.577" Width="900.385">
+        Title="MainWindow" Height="700" Width="900">
+    
+    
     <Grid>
-        <Menu DockPanel.Dock="Top" Margin="0,0,9.6,451.8">
-            <MenuItem Header="Plik">
-                <MenuItem x:Name="Otwórz" Header="Otwórz" Click="Open_Click"/>
-                <MenuItem x:Name="Zapisz" Header="Zapisz" Click="Safe_Click"/>
-            </MenuItem>
 
-        </Menu>
-        <Image Name ="ImagePhoto" RenderTransformOrigin="0.632,0.827" Margin="88,34,84.6,185.8"/>
-        <Button Content="Zmiana przestrzeni barw na monochromatyczną" Margin="26,326,610.6,0" VerticalAlignment="Top" Click="Monochrome_Click" Height="40">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="15"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
 
-        </Button>
-        <Button Content="Rozmycie obrazu" HorizontalAlignment="Left" Margin="26,371,0,0" VerticalAlignment="Top" Width="257" Height="35" Click="Blur_Click" />
-        <Button Content="Odjęcie obrazu rozmytego od obrazu oryginalnego w odcieniach szarości(" HorizontalAlignment="Left" Margin="26,411,0,0" VerticalAlignment="Top" Width="257" Height="39" Click="Deduction_Click"/>
-        <Button Content="Binaryzacja Otsu" HorizontalAlignment="Left" Margin="326,326,0,0" VerticalAlignment="Top" Width="257" Height="39" Click="Otsu_Click"/>
-        <Button Content="Zastosowanie filtru medianowego" HorizontalAlignment="Left" Margin="326,371,0,0" VerticalAlignment="Top" Width="257" Height="39" Click="Filter_Click"/>
+        <DockPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="100">
+            <Menu DockPanel.Dock="Top" IsMainMenu="True">
+                <MenuItem Header="Plik">
+                    <MenuItem x:Name="Otwórz" Header="Otwórz" Click="Open_Click"/>
+                    <MenuItem x:Name="Zapisz" Header="Zapisz" Click="Safe_Click"/>
+                </MenuItem>
+
+            </Menu>
+        </DockPanel>
+
+        <Border Grid.Column="1" Grid.Row="1" BorderBrush="Black" BorderThickness="1" Margin="10,10">
+            <Image Name ="ImagePhoto" Margin="10, 10"/>
+        </Border>
+        <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Vertical">
+            <Button Content="Zmiana przestrzeni barw na monochromatyczną" Click="Monochrome_Click" Width="450"/>
+            <Separator Width="450"/>
+            <Button Content="Rozmycie obrazu" Click="Blur_Click" Width="450"/>
+            <Separator Width="450"/>
+            <Button Content="Odjęcie obrazu rozmytego od obrazu oryginalnego w odcieniach szarości(" Click="Deduction_Click" Width="450"/>
+            <Separator Width="450"/>
+            <Button Content="Binaryzacja Otsu" Click="Otsu_Click" Width="450"/>
+            <Separator Width="450"/>
+            <Button Content="Zastosowanie filtru medianowego" Click="Filter_Click" Width="450"/>
+        </StackPanel>
     </Grid>
 </Window>
