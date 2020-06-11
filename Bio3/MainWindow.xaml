@@ -40,15 +40,19 @@
             <Image Name ="ImagePhoto" Margin="10, 10"/>
         </Border>
         <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Vertical">
+            <Button Content="Cały program" Width="450"/>
+            <Separator Width="450" Margin="0, 10"/>
             <Button Content="Zmiana przestrzeni barw na monochromatyczną" Click="Monochrome_Click" Width="450"/>
             <Separator Width="450"/>
             <Button Content="Rozmycie obrazu" Click="Blur_Click" Width="450"/>
             <Separator Width="450"/>
-            <Button Content="Odjęcie obrazu rozmytego od obrazu oryginalnego w odcieniach szarości(" Click="Deduction_Click" Width="450"/>
+            <Button Content="Odjęcie obrazu rozmytego od obrazu oryginalnego w odcieniach szarości" Click="Deduction_Click" Width="450"/>
             <Separator Width="450"/>
             <Button Content="Binaryzacja Otsu" Click="Otsu_Click" Width="450"/>
             <Separator Width="450"/>
             <Button Content="Zastosowanie filtru medianowego" Click="Filter_Click" Width="450"/>
+            <Separator Width="450"/>
+            <Button Content="Zamknięcie morfologiczne" Width="450"/>
             <Separator Width="450"/>
             <Button Content="Szkieletyzacja" Click="K3M_Click" Width="450"/>
             <Separator Width="450"/>

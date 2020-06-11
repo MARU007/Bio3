@@ -49,7 +49,7 @@ namespace Bio3
                 myBitmapImage.EndInit();
             }
             ImagePhoto.Source = myBitmapImage;
-            image = new Bitmap(image, 1200, 800);
+            image = new Bitmap(image, 800, 400);
             imageMonochrome = new Bitmap(image);
             imageBlur = new Bitmap(image);
             imageDeduction = new Bitmap(image);

@@ -69,6 +69,8 @@
     <Compile Include="Filter.cs" />
     <Compile Include="FilterMinution.cs" />
     <Compile Include="FindMinutiae.cs" />
+    <Compile Include="Invert.cs" />
+    <Compile Include="K3M.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
