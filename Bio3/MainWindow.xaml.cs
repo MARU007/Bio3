@@ -29,7 +29,7 @@ namespace Bio3
             InitializeComponent();
         }
 
-        Bitmap image, imageMonochrome, imageBlurimageDeduction, imageOtsuBinarization, imageFilter, imageBlur, imageDeduction, imageK3M;
+        Bitmap image, imageMonochrome, imageBlurimageDeduction, imageOtsuBinarization, imageFilter, imageBlur, imageDeduction, imageK3M, imageInvert;
 
         private void Open_Click(object sender, RoutedEventArgs e)
         {
@@ -56,6 +56,7 @@ namespace Bio3
             imageOtsuBinarization = new Bitmap(image);
             imageFilter = new Bitmap(image);
             imageK3M = new Bitmap(image);
+            imageInvert = new Bitmap(image);
         }
 
         private void Monochrome_Click(object sender, RoutedEventArgs e)
@@ -102,26 +103,31 @@ namespace Bio3
             FindMinutiae findMinutiae = new FindMinutiae();
             image = findMinutiae.SearchMinutiae(image);
             setImage(image);
-
-<<<<<<< HEAD
         }
-          private void FilterMinutia_Click(object sender, RoutedEventArgs e)
+        private void FilterMinutia_Click(object sender, RoutedEventArgs e)
         {
             FilterMinution filter = new FilterMinution();
             image = filter.Filtering(image);
             setImage(image);
-
         }
-=======
+
         private void K3M_Click(object sender, RoutedEventArgs e)
         {
             K3M k3M = new K3M();
             imageK3M = k3M.K3MSkeletonization(image);//trzeba zmienić na morfologiczne, jeśli nie są
-            setImage(imageFilter);
-            image = imageFilter;
+            setImage(imageK3M);
+            image = imageK3M;
         }
 
->>>>>>> master
+        private void InvertColor_Click(object sender, RoutedEventArgs e)
+        {
+            Invert invert = new Invert();
+            imageInvert = invert.InvertColors(image);
+            setImage(imageInvert);
+            image = imageInvert;
+        }
+
+
         private void setImage(Bitmap bmp)
         {
             using (var memory = new MemoryStream())

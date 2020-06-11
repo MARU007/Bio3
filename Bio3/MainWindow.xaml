@@ -50,6 +50,10 @@
             <Separator Width="450"/>
             <Button Content="Zastosowanie filtru medianowego" Click="Filter_Click" Width="450"/>
             <Separator Width="450"/>
+            <Button Content="Szkieletyzacja" Click="K3M_Click" Width="450"/>
+            <Separator Width="450"/>
+            <Button Content="Odwrócenie kolorów" Click="InvertColor_Click" Width="450"/>
+            <Separator Width="450"/>
             <Button Content="Znajdywanie minuncji" Click="SearchMinutia_Click" Width="450"/>
             <Separator Width="450"/>
             <Button Content="Filtracja minuncji" Click="FilterMinutia_Click" Width="450"/>
