@@ -1,4 +1,4 @@
-﻿using Microsoft.Win32;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -29,13 +29,13 @@ namespace Bio3
             InitializeComponent();
         }
 
-        Bitmap image, imageMonochrome, imageBlurimageDeduction, imageOtsuBinarization, imageFilter, imageBlur, imageDeduction, imageK3M, imageInvert;
+        Bitmap image, imageMonochrome, imageBlurimageDeduction, imageOtsuBinarization, imageFilter, imageBlur, imageDeduction, imageK3M, imageMorph;
 
         private void Open_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog op = new OpenFileDialog();
             op.Title = "Select a picture";
-            op.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp;*.tiff)|*.jpg; *.jpeg; *.gif; *.bmp; *.tiff";
+            op.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.tiff;)|*.jpg; *.jpeg; *.gif; *.bmp; *.tiff;";
             if (op.ShowDialog() == true)
             {
                 image = new Bitmap(File.OpenRead(op.FileName));
@@ -49,14 +49,14 @@ namespace Bio3
                 myBitmapImage.EndInit();
             }
             ImagePhoto.Source = myBitmapImage;
-            image = new Bitmap(image, 800, 400);
+            image = new Bitmap(image, 1200, 800);
             imageMonochrome = new Bitmap(image);
             imageBlur = new Bitmap(image);
             imageDeduction = new Bitmap(image);
             imageOtsuBinarization = new Bitmap(image);
             imageFilter = new Bitmap(image);
             imageK3M = new Bitmap(image);
-            imageInvert = new Bitmap(image);
+            imageMorph = new Bitmap(image);
         }
 
         private void Monochrome_Click(object sender, RoutedEventArgs e)
@@ -71,8 +71,8 @@ namespace Bio3
         {
             Blur blur = new Blur();
             Monochrome monochrome = new Monochrome();
-            imageBlur = blur.BlurImage(imageBlur);
             imageBlur = monochrome.ReplacementForGray(imageBlur);
+            imageBlur = blur.BlurImage(imageBlur);
             setImage(imageBlur);
             image = imageBlur;
         }
@@ -80,7 +80,7 @@ namespace Bio3
         private void Deduction_Click(object sender, RoutedEventArgs e)
         {
             Deduction deduction = new Deduction();
-            imageDeduction = deduction.DeductionImage(imageBlur, imageMonochrome);
+            imageDeduction = deduction.DeductionImage(imageMonochrome, imageBlur);
             setImage(imageDeduction);
             image = imageDeduction;
         }
@@ -98,35 +98,36 @@ namespace Bio3
             setImage(imageFilter);
             image = imageFilter;
         }
+        private void Morphological_Click(object sender, RoutedEventArgs e)
+        {
+            morphologicalClosure morphological = new morphologicalClosure();
+            imageMorph = morphological.FilterM(imageFilter);
+            setImage(imageMorph);
+
+        }
         private void SearchMinutia_Click(object sender, RoutedEventArgs e)
         {
             FindMinutiae findMinutiae = new FindMinutiae();
             image = findMinutiae.SearchMinutiae(image);
             setImage(image);
+
         }
         private void FilterMinutia_Click(object sender, RoutedEventArgs e)
         {
             FilterMinution filter = new FilterMinution();
             image = filter.Filtering(image);
             setImage(image);
+
         }
 
-        private void K3M_Click(object sender, RoutedEventArgs e)
-        {
-            K3M k3M = new K3M();
-            imageK3M = k3M.K3MSkeletonization(image);//trzeba zmienić na morfologiczne, jeśli nie są
-            setImage(imageK3M);
-            image = imageK3M;
-        }
-
-        private void InvertColor_Click(object sender, RoutedEventArgs e)
-        {
-            Invert invert = new Invert();
-            imageInvert = invert.InvertColors(image);
-            setImage(imageInvert);
-            image = imageInvert;
-        }
-
+      
+        /*    private void K3M_Click(object sender, RoutedEventArgs e)
+            {
+                K3M k3M = new K3M();
+                imageK3M = k3M.K3MSkeletonization(image);//trzeba zmienić na morfologiczne, jeśli nie są
+                setImage(imageFilter);
+                image = imageFilter;
+            }*/
 
         private void setImage(Bitmap bmp)
         {
